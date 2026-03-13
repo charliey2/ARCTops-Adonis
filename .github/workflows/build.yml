@@ -2,7 +2,7 @@ name: rojo
  
 on:
   push:
-    branches: [master]
+    branches: [staging]
     tags: 
       - v**
   pull_request:
@@ -64,7 +64,7 @@ jobs:
     # The following commands are run for pushes only.
           
       - name: Build Nightly MainModule
-        if: github.repository == 'Epix-Incorporated/Adonis' && github.event_name == 'push' && github.ref_name == 'master'
+        if: github.repository == 'charliey2/ARCTops-Adonis' && github.event_name == 'push' && github.ref_name == 'staging'
         run: rojo build -o module.rbxm .github/module.deploy.project.json
 
       - name: Get short SHA
@@ -72,22 +72,9 @@ jobs:
         run: |
           id=$(echo ${{github.sha}} | cut -c 1-7)
           echo "::set-output name=id::$id"
-
-      - name: Send file nightly build to Discord channel
-        uses: tsickert/discord-webhook@v7.0.0
-        if: github.repository == 'Epix-Incorporated/Adonis' && github.event_name == 'push' && github.ref_name == 'master'
-        with:
-          webhook-url: ${{ secrets.NIGHTLY_WEBHOOK }}
-          filename: ${{ steps.naming.outputs.output_name }}.rbxm
-          content: ${{ format(
-            '`{0}` "{1}" pushed by {2}',
-            steps.get-short-sha.outputs.id,
-            github.event.head_commit.message,
-            github.actor
-            ) }}
           
       - name: Publish Nightly MainModule
-        if: github.repository == 'Epix-Incorporated/Adonis' && github.event_name == 'push' && github.ref_name == 'master'
+        if: github.repository == 'charliey2/ARCTops-Adonis' && github.event_name == 'push' && github.ref_name == 'staging'
         run: |
           curl --location --request PATCH 'https://apis.roblox.com/assets/v1/assets/${{ secrets.NIGHTLY_MODULE_ID }}' \
           --header 'x-api-key: ${{ secrets.ROBLOX_API_KEY }}' \

@@ -2,7 +2,7 @@ name: publish
 
 on:
   push:
-    branches: [release]
+    branches: [master]
 
   release:
     types: [published]
@@ -48,12 +48,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
         
-      - name: Set DebugMode off
-        run: sed -i "s/DebugMode = true/DebugMode = false/g" Loader/Loader/Loader.server.luau
-        
-      - name: Set NightlyMode off
-        run: sed -i "s/NightlyMode = true/NightlyMode = false/g" Loader/Loader/Loader.server.luau
-        
       - name: Build Standalone
         run: rojo build -o ${{ steps.naming.outputs.output_name }}.rbxm .github/build.project.json
      
@@ -62,35 +56,9 @@ jobs:
           name: ${{ steps.naming.outputs.output_name }}
           path: ${{ steps.naming.outputs.output_name }}.rbxm
         
-      - name: Build Loader
-        run: rojo build -o Adonis_Loader.rbxm .github/loader.deploy.project.json
-        
       - name: Build MainModule
         run: rojo build -o Adonis_MainModule.rbxm .github/module.deploy.project.json
         
-      - name: Build Alerts Module
-        run: rojo build -o Adonis_AlertsModule.rbxm .github/alerts.deploy.project.json
-        
-      - name: Send Standalone Release to Discord channel
-        uses: tsickert/discord-webhook@v7.0.0
-        with:
-          webhook-url: ${{ secrets.RELEASE_WEBHOOK }}
-          filename: ${{ steps.naming.outputs.output_name }}.rbxm
-          content: ${{ github.event_name == 'release'
-            && format('{0} has been released by {1}.', github.event.release.tag_name, github.actor)
-            || format('Stable build has been created by {0}.', github.actor)
-            }}     
-
-      - name: Publish Loader
-        run: |
-          curl --location --request PATCH 'https://apis.roblox.com/assets/v1/assets/${{ secrets.LOADER_ID }}' \
-          --header 'x-api-key: ${{ secrets.ROBLOX_API_KEY }}' \
-          --form 'request={
-            "assetType": "Model",
-            "assetId": "${{ secrets.LOADER_ID }}"
-          }' \
-          --form 'fileContent=@Adonis_Loader.rbxm;type=model/x-rbxm'
-
       - name: Publish Module
         run: |
           curl --location --request PATCH 'https://apis.roblox.com/assets/v1/assets/${{ secrets.MODULE_ID }}' \
@@ -100,13 +68,3 @@ jobs:
             "assetId": "${{ secrets.MODULE_ID }}"
           }' \
           --form 'fileContent=@Adonis_MainModule.rbxm;type=model/x-rbxm'
-
-      - name: Publish Alerts Module
-        run: |
-          curl --location --request PATCH 'https://apis.roblox.com/assets/v1/assets/${{ secrets.ALERTS_MODULE_ID }}' \
-          --header 'x-api-key: ${{ secrets.ROBLOX_API_KEY }}' \
-          --form 'request={
-            "assetType": "Model",
-            "assetId": "${{ secrets.ALERTS_MODULE_ID }}"
-          }' \
-          --form 'fileContent=@Adonis_AlertsModule.rbxm;type=model/x-rbxm'
