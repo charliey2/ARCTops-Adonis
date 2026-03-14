@@ -4659,7 +4659,7 @@ return function(Vargs, env)
 			end
 		};
 
-		MakeServer = {
+		MakeServer = not Core.IsPrivateServer and {
 			Prefix = Settings.Prefix;
 			Commands = {"makeserver", "reserveserver", "privateserver"};
 			Args = {"serverName", "(optional) placeId"};
@@ -4675,9 +4675,9 @@ return function(Vargs, env)
 				Core.SetData("PrivateServers", servers)
 				Functions.Hint(`Made server {args[1]} | Place: {place}`, {plr})
 			end
-		};
+		} or nil;
 
-		DeleteServer = {
+		DeleteServer = not Core.IsPrivateServer and {
 			Prefix = Settings.Prefix;
 			Commands = {"delserver", "deleteserver", "removeserver", "rmserver"};
 			Args = {"serverName"};
@@ -4693,9 +4693,9 @@ return function(Vargs, env)
 					Functions.Hint(`Server {args[1]} was not found!`, {plr})
 				end
 			end
-		};
+		} or nil;
 
-		ListServers = {
+		ListServers = not Core.IsPrivateServer and {
 			Prefix = Settings.Prefix;
 			Commands = {"privateservers", "createdservers"};
 			Args = {};
@@ -4709,7 +4709,7 @@ return function(Vargs, env)
 				end
 				Remote.MakeGui(plr, "List", {Title = "Servers"; Table = tab;})
 			end
-		};
+		} or nil;
 
 		GRPlaza = {
 			Prefix = Settings.Prefix;

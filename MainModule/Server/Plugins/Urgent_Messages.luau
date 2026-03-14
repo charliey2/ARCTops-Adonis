@@ -9,6 +9,7 @@ return function(Vargs, GetEnv)
 	local LastDateTime, Messages = "Loading...", {"The messages haven't loaded. Please comeback later..."}
 	Variables.UrgentModuleId = Variables.UrgentModuleId or 8096250407
 
+	--[[
 	task.spawn(xpcall, function()
 		local Alerts = require(Deps.__URGENT_MESSAGES)
 		local assetInfo = type(Variables.UrgentModuleId) == "number" and service.GetProductInfo(Variables.UrgentModuleId, Enum.InfoType.Asset)
@@ -90,24 +91,24 @@ return function(Vargs, GetEnv)
 		service.Events.PlayerAdded:Connect(onPlayerAdded)
 		Logs:AddLog("Script", "Successfully loaded alerts module data")
 	end, warn)
-
-	Commands.UrgentMessages = {
-		Prefix = ":";
-		Commands = {"adonisalerts", "urgentmessages", "urgentalerts", "adonismessages", "urgentadonismessages", "ulog"};
-		Args = {};
-		Description = "URGENT ADONIS RELATED MESSAGES";
-		AdminLevel = "Players";
-		Function = function(plr,args)
-			Remote.MakeGui(plr,"List",{
-				Title = `URGENT MESSAGES [Recent: {LastDateTime}]`,
-				Icon = "rbxassetid://7467273592",
-				Table = Messages,
-				Font = "Code",
-				PageSize = 100;
-				Size = {700, 400},
-			})
-		end;
-	};
+]]
+	-- Commands.UrgentMessages = {
+	-- 	Prefix = ":";
+	-- 	Commands = {"adonisalerts", "urgentmessages", "urgentalerts", "adonismessages", "urgentadonismessages", "ulog"};
+	-- 	Args = {};
+	-- 	Description = "URGENT ADONIS RELATED MESSAGES";
+	-- 	AdminLevel = "Players";
+	-- 	Function = function(plr,args)
+	-- 		Remote.MakeGui(plr,"List",{
+	-- 			Title = `URGENT MESSAGES [Recent: {LastDateTime}]`,
+	-- 			Icon = "rbxassetid://7467273592",
+	-- 			Table = Messages,
+	-- 			Font = "Code",
+	-- 			PageSize = 100;
+	-- 			Size = {700, 400},
+	-- 		})
+	-- 	end;
+	-- };
 
 	Logs:AddLog("Script", "Alerts Module Loaded")
 end

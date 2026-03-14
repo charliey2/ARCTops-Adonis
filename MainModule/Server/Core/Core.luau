@@ -43,7 +43,7 @@ return function(Vargs, GetEnv)
 		--// Core variables
 		Core.Themes = data.Themes or {}
 		Core.Plugins = data.Plugins or {}
-		Core.ModuleID = data.ModuleID or 7510592873
+		Core.ModuleID = data.ModuleID or 103679471764536
 		Core.LoaderID = data.LoaderID or 7510622625
 		Core.DebugMode = data.DebugMode or false
 		Core.Name = service.HttpService:GenerateGUID(false)
@@ -120,6 +120,8 @@ return function(Vargs, GetEnv)
 		Connections = {};
 		BytecodeCache = {};
 		SavedPlayerData = {};
+
+		IsPrivateServer = game.PrivateServerId ~= "",
 
 		Variables = {
 			TimeBans = {};
@@ -716,7 +718,7 @@ return function(Vargs, GetEnv)
 					local data = service.DeepCopy(pData)
 
 					--// Temporary junk that will be removed on save.
-					for _, blacklistedData in ipairs({"Groups", "LastChat", "AdminRank", "AdminLevel", "LastLevelUpdate", "LastDataSave", "UserInfo"}) do
+					for _, blacklistedData in ipairs({"Groups", "LastChat", "AdminRank", "AdminLevel", "LastLevelUpdate", "LastDataSave", "UserInfo", "Donor"}) do
 						data[blacklistedData] = nil
 					end
 
@@ -725,8 +727,8 @@ return function(Vargs, GetEnv)
 						IgnoreKeys = {"Groups", "AdminLevel", "AdminRank", "LastLevelUpdate", "LastDataSave", "UserInfo"}
 					}
 
-					data.AdminNotes = Functions.DSKeyNormalize(data.AdminNotes)
-					data.Warnings = Functions.DSKeyNormalize(data.Warnings)
+					-- data.AdminNotes = Functions.DSKeyNormalize(data.AdminNotes)
+					-- data.Warnings = Functions.DSKeyNormalize(data.Warnings)
 
 					if Core.SavedPlayerData[p.UserId] and Functions.LaxCheckMatch(Core.SavedPlayerData[p.UserId], data, CompareOptions) and Functions.LaxCheckMatch(data, Core.SavedPlayerData[p.UserId], CompareOptions) then
 						AddLog(Logs.Script, {
@@ -734,12 +736,30 @@ return function(Vargs, GetEnv)
 							Desc = "Player data was not saved to the datastore due to it being already saved.";
 						})
 					elseif not Functions.LaxCheckMatch(Core.DefaultPlayerData(p), data, CompareOptions) or Core.SavedPlayerData[p.UserId] and not (Functions.LaxCheckMatch(Core.SavedPlayerData[p.UserId], data, CompareOptions) or Functions.LaxCheckMatch(data, Core.SavedPlayerData[p.UserId], CompareOptions)) then
-						Core.SetData(key, data)
+						-- Private servers should never save anything except for bans!! - charl_iey
+						if Core.IsPrivateServer then
+							local privateData = {
+								Banned = data.Banned,
+								TimeBan = data.TimeBan,
+							}
+
+							if privateData.Banned or privateData.TimeBan then
+								Core.SetData(key, privateData)
+							else
+								AddLog(Logs.Script, {
+									Text = `Didn't save data for private server for {p.Name}`;
+									Desc = "Player data was not saved to the datastore due to it being a private server and not having any ban data.";
+								})
+							end
+						else
+							Core.SetData(key, data)
+							AddLog(Logs.Script, {
+								Text = `Saved data for {p.Name}`;
+								Desc = "Player data was saved to the datastore";
+							})
+						end
+
 						Core.SavedPlayerData[p.UserId] = data
-						AddLog(Logs.Script, {
-							Text = `Saved data for {p.Name}`;
-							Desc = "Player data was saved to the datastore";
-						})
 					else
 						AddLog(Logs.Script, {
 							Text = `Didn't save default data for {p.Name}`;

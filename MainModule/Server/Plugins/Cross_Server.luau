@@ -8,6 +8,10 @@ return function(Vargs, GetEnv)
 	local Functions, Commands, Admin, Anti, Core, HTTP, Logs, Remote, Process, Variables, Deps =
 		server.Functions, server.Commands, server.Admin, server.Anti, server.Core, server.HTTP, server.Logs, server.Remote, server.Process, server.Variables, server.Deps
 
+	if Core.IsPrivateServer then
+		return { }
+	end
+
 	local thisJobId = game.JobId;
 	local messagingService = service.MessagingService;
 	local encryptedSubKey = Core.DataStoreEncode("Adonis_CrossServerMessaging");

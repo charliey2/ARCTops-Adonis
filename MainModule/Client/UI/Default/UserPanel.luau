@@ -379,11 +379,11 @@ return function(data, env)
 			end
 		end
 
-
 		--// Help/Info
 		do
 			infoTab:Add("TextLabel", {
-				Text = "Adonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.\n\nFeel free to take and edit it on\nthe condition that existing credits remain.\nHave an idea? Let us know!";
+				Text = "This game uses a custom version of Adonis by Charl_iey for ARC-478.\n\nAdonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.",
+				--Text = "Adonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.\n\nFeel free to take and edit it on\nthe condition that existing credits remain.\nHave an idea? Let us know!";
 				TextWrapped = true;
 				Size = UDim2.new(1, -145, 1, -10);
 				Position = UDim2.new(0, 5, 0, 5);
@@ -430,53 +430,53 @@ return function(data, env)
 				}
 			})
 
-			infoTab:Add("TextButton", {
-				Text = "Get Loader";
-				Size = UDim2.new(0, 130, 0, 40);
-				Position = UDim2.new(1, -135, 0, 140);
-				BackgroundTransparency = 0.5;
-				Events = {
-					MouseButton1Down = function()
-						promptPurchase(false, 7510622625)
-					end
-				}
-			}):Add("ImageLabel", {
-				BackgroundTransparency = 1;
-				Image = "rbxassetid://7346570801";
-				ImageTransparency = 0.2;
-				Size = UDim2.new(0, 18, 0, 18);
-				Position = UDim2.new(1, -22, 0, 4);
-			})
+			-- infoTab:Add("TextButton", {
+			-- 	Text = "Get Loader";
+			-- 	Size = UDim2.new(0, 130, 0, 40);
+			-- 	Position = UDim2.new(1, -135, 0, 140);
+			-- 	BackgroundTransparency = 0.5;
+			-- 	Events = {
+			-- 		MouseButton1Down = function()
+			-- 			promptPurchase(false, 7510622625)
+			-- 		end
+			-- 	}
+			-- }):Add("ImageLabel", {
+			-- 	BackgroundTransparency = 1;
+			-- 	Image = "rbxassetid://7346570801";
+			-- 	ImageTransparency = 0.2;
+			-- 	Size = UDim2.new(0, 18, 0, 18);
+			-- 	Position = UDim2.new(1, -22, 0, 4);
+			-- })
 
-			infoTab:Add("TextButton", {
-				Text = "Get Source";
-				Size = UDim2.new(0, 130, 0, 40);
-				Position = UDim2.new(1, -135, 0, 185);
-				BackgroundTransparency = 0.5;
-				Events = {
-					MouseButton1Down = function()
-						promptPurchase(false, 7510592873)
-					end
-				}
-			}):Add("ImageLabel", {
-				BackgroundTransparency = 1;
-				Image = "rbxassetid://7346570801";
-				ImageTransparency = 0.2;
-				Size = UDim2.new(0, 18, 0, 18);
-				Position = UDim2.new(1, -22, 0, 4);
-			})
+			-- infoTab:Add("TextButton", {
+			-- 	Text = "Get Source";
+			-- 	Size = UDim2.new(0, 130, 0, 40);
+			-- 	Position = UDim2.new(1, -135, 0, 185);
+			-- 	BackgroundTransparency = 0.5;
+			-- 	Events = {
+			-- 		MouseButton1Down = function()
+			-- 			promptPurchase(false, 7510592873)
+			-- 		end
+			-- 	}
+			-- }):Add("ImageLabel", {
+			-- 	BackgroundTransparency = 1;
+			-- 	Image = "rbxassetid://7346570801";
+			-- 	ImageTransparency = 0.2;
+			-- 	Size = UDim2.new(0, 18, 0, 18);
+			-- 	Position = UDim2.new(1, -22, 0, 4);
+			-- })
 
-			infoTab:Add("TextButton", {
-				Text = "Open Console";
-				Size = UDim2.new(0, 130, 0, 40);
-				Position = UDim2.new(1, -135, 0, 230);
-				BackgroundTransparency = 0.5;
-				Events = {
-					MouseButton1Down = function()
-						service.Events.ToggleConsole:Fire()
-					end
-				}
-			})
+			-- infoTab:Add("TextButton", {
+			-- 	Text = "Open Console";
+			-- 	Size = UDim2.new(0, 130, 0, 40);
+			-- 	Position = UDim2.new(1, -135, 0, 230);
+			-- 	BackgroundTransparency = 0.5;
+			-- 	Events = {
+			-- 		MouseButton1Down = function()
+			-- 			service.Events.ToggleConsole:Fire()
+			-- 		end
+			-- 	}
+			-- })
 
 		end
 

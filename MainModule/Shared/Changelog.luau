@@ -1,7 +1,7 @@
 return {
-	"Version: 276.1";
+	"Version: 1.0.276.1";
 	"*Drag edges to expand*";
-	"*Report bugs/issues on our repository*";
+	"*Report bugs/issues in the ARCTops community server*";
 	"";
 	"[Patch v276.1 2026-03-09 22:02 UTC] @Dimenpsyonal";
 	"Revert #2019 allowing :insert to load 3rd party assets";
