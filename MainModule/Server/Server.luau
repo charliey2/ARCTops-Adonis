@@ -39,8 +39,6 @@ local CORE_LOADING_ORDER = table.freeze {
 --//   "Hi." - Me
 --//	Your mom
 
-print("hiiiiiiiiiiiiiiiiiii!")
-
 --// Holiday roooaaAaaoooAaaooOod
 local _G, game, script, getfenv, setfenv, workspace,
 getmetatable, setmetatable, loadstring, coroutine,
@@ -500,7 +498,7 @@ return service.NewProxy({
 			data.LoaderVersion = server.Model:FindFirstChild("Version") and tonumber(server.Model.Version.Value)
 		end
 
-		if data.NightlyMode or data.ModuleID == 8612978896 then
+		if data.NightlyMode or data.ModuleID == 116435276372763 then
 			data.NightlyMode = true
 
 			if not silentStartup then
