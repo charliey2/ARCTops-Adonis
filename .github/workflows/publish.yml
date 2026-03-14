@@ -20,10 +20,12 @@ jobs:
         env:
           GIT_HASH: ${{ github.sha }}
           GITHUB_REPO: ${{ github.repository }}
+          GIT_REF: ${{ github.ref_name }}
+          GIT_REF_TYPE: ${{ github.ref_type }}
           GITHUB_ACTION_EVENT_NAME: ${{ github.event_name }}
         run: |
-          CUR_DATE_TIME=$(date +'%Y-%m-%d')
-          echo "output_name=Adonis_Master_${GITHUB_REF#refs/*/}_$CUR_DATE_TIME" >> "$GITHUB_OUTPUT"
+         CUR_DATE_TIME=$(date +'%Y-%m-%d')
+         echo "output_name=Adonis_Master_${CUR_DATE_TIME}_$(git rev-parse --short "$GIT_HASH")" >> $GITHUB_OUTPUT
       - uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
