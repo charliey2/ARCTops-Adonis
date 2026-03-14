@@ -39,6 +39,8 @@ local CORE_LOADING_ORDER = table.freeze {
 --//   "Hi." - Me
 --//	Your mom
 
+print("hiiiiiiiiiiiiiiiiiii!")
+
 --// Holiday roooaaAaaoooAaaooOod
 local _G, game, script, getfenv, setfenv, workspace,
 getmetatable, setmetatable, loadstring, coroutine,
