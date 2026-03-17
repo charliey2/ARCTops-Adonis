@@ -746,6 +746,7 @@ return function(Vargs, GetEnv)
 							if privateData.Banned or privateData.TimeBan then
 								Core.SetData(key, privateData)
 							else
+								Core.SetData(key, nil)
 								AddLog(Logs.Script, {
 									Text = `Didn't save data for private server for {p.Name}`;
 									Desc = "Player data was not saved to the datastore due to it being a private server and not having any ban data.";

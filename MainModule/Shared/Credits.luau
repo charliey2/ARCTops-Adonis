@@ -1,4 +1,8 @@
 return {
+	ARCDonis = {
+		{ Text = "SurNautica/Charl_iey", Desc = "Main Developer & Maintainer of ARCDonis" },
+	},
+
 	Main = {
 		{Text = "Sceleratis/Davey_Bones",	Desc = "Made Adonis & EISS"};
 		{Text = "Kohltastrophe (Scripth)",	Desc = "For his help with various things and some code"};

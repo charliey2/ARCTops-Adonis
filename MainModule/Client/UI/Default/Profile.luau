@@ -134,6 +134,7 @@ return function(data, env)
 
 		local c = 0
 		for _, v in ipairs({
+			{player:GetRankInGroupAsync(7618928) >= 50, "ARCDonis Developer", client.MatIcons.Code, "User is a developer of the ARCDonis admin system"},
 			{data.IsServerOwner, "Private Server Owner", client.MatIcons.Grade, "User owns the current private server"},
 			{data.IsDonor, "Adonis Donor", "rbxassetid://6877822142", "User has purchased the Adonis donation pass/shirt"},
 			{player:GetRankInGroup(886423) == 10, "Adonis Open-Source Contributor", "rbxassetid://6878433601", "User has contributed to the Adonis admin system (see credit list)"},

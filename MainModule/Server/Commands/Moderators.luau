@@ -5124,6 +5124,12 @@ return function(Vargs, env)
 			Function = function(plr: Player, args: {string})
 				local statName = assert(args[1], "Missing the stat name!")
 
+				if Settings.RestrictedStats then
+					if table.find(Settings.RestrictedStats, string.lower(statName)) then
+						error("That stat name is restricted and cannot be removed.")
+					end
+				end
+
 				for _, v in service.GetPlayers() do
 					local leaderstats = v:FindFirstChild("leaderstats")
 					if leaderstats then
@@ -5159,6 +5165,13 @@ return function(Vargs, env)
 				if not statName then
 					error("Not statname provided!")
 				end
+
+				if Settings.RestrictedStats then
+					if table.find(Settings.RestrictedStats, string.lower(statName)) then
+						error("That stat name is restricted and cannot be created.")
+					end
+				end
+
 				local statType = if args[2] then args[2]:lower() else "number"
 				local FilteredStatName = service.BroadcastFilter(statName, plr)
 

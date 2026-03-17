@@ -54,7 +54,7 @@ return function(data, env)
 	local gTable
 	local window = UI.Make("Window", {
 		Name  = "UserPanel";
-		Title = Variables.NightlyMode and "Adonis Nightly" or "Adonis";
+		Title = Variables.NightlyMode and "ARCDonis Nightly" or "ARCDonis";
 		Icon = Variables.NightlyMode and "rbxassetid://6877822142" or "rbxassetid://7681261289"; --"rbxassetid://7681088830"; --"rbxassetid://7681233602"; --"rbxassetid://7681048299";
 		Size  = {465, 340};
 		AllowMultiple = false;
@@ -382,7 +382,7 @@ return function(data, env)
 		--// Help/Info
 		do
 			infoTab:Add("TextLabel", {
-				Text = "This game uses a custom version of Adonis by Charl_iey for ARC-478.\n\nAdonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.",
+				Text = "This game uses a custom version of Adonis (ARCDonis) by Charl_iey for ARC-478.\n\nAdonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.",
 				--Text = "Adonis is a frequently updated, community maintained, open source administration system created by Sceleratis (Davey_Bones). \n\nIts purpose is to assist in the\nadministration and moderation\nof Roblox game servers.\n\nFeel free to take and edit it on\nthe condition that existing credits remain.\nHave an idea? Let us know!";
 				TextWrapped = true;
 				Size = UDim2.new(1, -145, 1, -10);
