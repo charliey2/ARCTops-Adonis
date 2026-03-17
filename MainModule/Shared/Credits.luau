@@ -3,7 +3,7 @@ return {
 		{ Text = "SurNautica/Charl_iey", Desc = "Main Developer & Maintainer of ARCDonis" },
 	},
 
-	Main = {
+	Adonis = {
 		{Text = "Sceleratis/Davey_Bones",	Desc = "Made Adonis & EISS"};
 		{Text = "Kohltastrophe (Scripth)",	Desc = "For his help with various things and some code"};
 		{Text = "einsteinK",				Desc = "Helped me with some scripting problems early in development and put together the LoadstringParser; Best programmer I know"};
