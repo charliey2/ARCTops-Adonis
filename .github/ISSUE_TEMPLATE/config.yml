@@ -1,6 +1,9 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 💬 Discord Server
-    url: https://discord.gg/H5RvTP3
-    about: Please submit your questions here. Join our community for in-depth discussions and to easily contact Adonis maintainers.
+  - name: ARC MaD Discord Server
+    url: https://discord.gg/297p84UVe4
+    about: For non-urgent issues, questions, or discussions, please join the ARC-478 Manufacturing Department Discord server.
+  - name: ARC-478 Discord Server
+    url: https://discord.gg/HmECNWRkqR
+    about: To report non-ARCDonis related issues with ARC-478 or ARCTops, please join the ARC-478 Discord server and use the bug-reports forum.
     
