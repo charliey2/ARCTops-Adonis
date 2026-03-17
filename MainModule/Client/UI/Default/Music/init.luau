@@ -470,7 +470,7 @@ return function(data, env)
 		end;
 	})
 	local adonisTab = tabFrame:NewTab("Adonis", {
-		Text = "Adonis";
+		Text = "ARCDonis";
 		OnFocus = function()
 			activeSongList = availableSongLists["Adonis"] or {}
 		end;

@@ -1,27 +1,21 @@
-# 🛡️ Adonis Repository Security Policy
+# ARCDonis Security Policy
 
-## Supported Versions
+## Vulnerability Reporting
 
-Only the *live* (release) version of Adonis is officially supported and given security updates when necessary.
+**If the vulnerability is *severe* or public discussion could put users, source data, and/or games at risk:** please join the [MaD Discord](https://discord.gg/297p84UVe4) and send a Direct Message to `charliey#0001` as soon as possible. Alternatively, if reporting on Discord is not possible, create a [Github](https://github.com/charliey2/ARCTops-Adonis/security/advisories/new) advisory.
 
-[Supported Loader *(use this)*](https://www.roblox.com/library/7510622625) | [Supported MainModule (source)](https://www.roblox.com/library/7510592873)
+<details>
+<summary>Severe Vulnerability Examples</summary>
+- User privacy bypasses
+- User data leaks & exploits
+- Server-side access exploits
+- Third-party DataStore access
+- Game source access
+- Roblox Creator & User ToS violations
+</details>
 
-* Older versions of Adonis are not maintained/updated; hence, we do *not* recommend using those versions as they may contain a larger number of unpatched vulnerabilities (and bugs). 
-* Additionally, we do not offer security patches or updates for forks of Adonis. If you wish to continue to recieve feature and security updates, we reccommend using the supported versions.
+**If the vulnerability is minor and public discussion is not an issue:** create a [Github Issue](https://github.com/charliey2/ARCTops-Adonis/issues/new/choose).
 
-## Reporting a Vulnerability in Adonis
+### Adonis Forwarding
 
-👉 **If the vulnerability is *severe* or highly damaging**, join the [Epix Incorporated Discord server](https://discord.gg/H5RvTP3) and DM a *Moderator*, *Developer, or *Maintainer*.
-
-👉 **If the vulnerability is relatively minor and can be safely discussed in public**, create a bug report [on GitHub](https://github.com/Epix-Incorporated/Adonis/issues/new/choose) or in our Discord server.
-
-Be sure to include the following info in your report:
-* When the vulnerability was discovered or first known;
-* What is the potential impact (consequence) of the vulnerability; and
-* How the vulnerability may be exploited.
-
-Adonis Maintainers will investigate each vulnerability report and provide a fix at the earliest possible opportunity where necessary.
-
----
-
-<sub>Notice anything wrong with this page? [Submit an issue](https://github.com/Epix-Incorporated/Adonis/issues/new/choose) or discuss it in our official [Discord server](https://discord.com/invite/H5RvTP3).</sub>
+We will forward reported ARCDonis security vulnerabilities to the Adonis development team if we determine the issue is also present in main Adonis. If you are confident the issue is present in main Adonis and the issue is urgent, you are encouraged to report it to the Adonis maintainers [here](https://github.com/Epix-Incorporated/Adonis/security).

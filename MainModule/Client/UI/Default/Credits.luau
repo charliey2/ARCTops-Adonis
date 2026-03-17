@@ -24,9 +24,10 @@ return function(data, env)
 
 	local Credits = require(client.Shared.Credits)
 	for _, tab in ipairs({
-		[1] = tabFrame:NewTab("Main", { Text = "Main" }),
-		[2] = tabFrame:NewTab("Contributors", { Text = "Contributors" }),
-		[3] = tabFrame:NewTab("Misc", { Text = "Everyone Else" }),
+		[1] = tabFrame:NewTab("ARCDonis", { Text = "ARCDonis" }),
+		[2] = tabFrame:NewTab("Adonis", { Text = "Adonis" }),
+		[3] = tabFrame:NewTab("Contributors", { Text = "Contributors" }),
+		[4] = tabFrame:NewTab("Misc", { Text = "Everyone Else" }),
 	}) do
 		local scroller = tab:Add("ScrollingFrame", {
 			List = {},
